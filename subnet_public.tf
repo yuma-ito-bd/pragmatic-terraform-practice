@@ -1,13 +1,24 @@
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet
-resource "aws_subnet" "public" {
+resource "aws_subnet" "public_0" {
   vpc_id                  = aws_vpc.pragmatic_terraform.id
-  cidr_block              = "10.0.0.0/24"
+  cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
   availability_zone       = "ap-northeast-1a"
 
   tags = {
-    Name = "pragmatic-terraform-public"
+    Name = "pragmatic-terraform-public_0"
+  }
+}
+
+resource "aws_subnet" "public_1" {
+  vpc_id                  = aws_vpc.pragmatic_terraform.id
+  cidr_block              = "10.0.2.0/24"
+  map_public_ip_on_launch = true
+  availability_zone       = "ap-northeast-1c"
+
+  tags = {
+    Name = "pragmatic-terraform-public_1"
   }
 }
 
@@ -37,7 +48,12 @@ resource "aws_route" "public" {
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/main_route_table_association
-resource "aws_route_table_association" "public" {
-  subnet_id      = aws_subnet.public.id
+resource "aws_route_table_association" "public_0" {
+  subnet_id      = aws_subnet.public_0.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "public_1" {
+  subnet_id      = aws_subnet.public_1.id
   route_table_id = aws_route_table.public.id
 }
