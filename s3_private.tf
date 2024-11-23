@@ -1,6 +1,6 @@
 # https://registry.terraform.io/providers/hashicorp/aws/5.77.0/docs/resources/s3_bucket
 resource "aws_s3_bucket" "private" {
-  bucket = "private-makoto-pragmatic-terraform"
+  bucket = "private-yuma-ito-bd-pragmatic-terraform"
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning
