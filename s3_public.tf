@@ -43,7 +43,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "public" {
 
 # https://registry.terraform.io/providers/hashicorp/aws/5.77.0/docs/resources/s3_bucket_public_access_block
 resource "aws_s3_bucket_public_access_block" "public" {
-  bucket = aws_s3_bucket.private.id
+  bucket = aws_s3_bucket.public.id
 
   block_public_acls       = false
   block_public_policy     = false
