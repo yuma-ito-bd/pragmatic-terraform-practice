@@ -1,0 +1,16 @@
+[
+  {
+    "name": "alpine",
+    "image": "alpine:latest",
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/ecs-scheduled-tasks/pragmatic-terraform",
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "batch"
+      }
+    },
+    "command": ["/bin/date"]
+  }
+]

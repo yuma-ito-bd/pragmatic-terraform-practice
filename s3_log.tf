@@ -1,6 +1,7 @@
 # https://registry.terraform.io/providers/hashicorp/aws/5.77.0/docs/resources/s3_bucket
 resource "aws_s3_bucket" "alb_log" {
-  bucket = "alb-log-yuma-ito-bd-pragmatic-terraform"
+  bucket        = "alb-log-yuma-ito-bd-pragmatic-terraform"
+  force_destroy = true # 練習用なので削除可能にする
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/5.77.0/docs/resources/s3_bucket_lifecycle_configuration
