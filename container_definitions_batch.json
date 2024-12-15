@@ -3,6 +3,7 @@
     "name": "alpine",
     "image": "alpine:latest",
     "essential": true,
+    "environment": [],
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
@@ -11,6 +12,20 @@
         "awslogs-stream-prefix": "batch"
       }
     },
-    "command": ["/bin/date"]
+    "mountPoints": [],
+    "secrets": [
+      {
+        "name": "DB_USERNAME",
+        "valueFrom": "/db/username"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "valueFrom": "/db/password"
+      }
+    ],
+    "command": ["/usr/bin/env"],
+    "portMappings": [],
+    "systemControls": [],
+    "volumesFrom": []
   }
 ]
